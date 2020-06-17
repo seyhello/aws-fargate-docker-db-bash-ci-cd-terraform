@@ -6,14 +6,14 @@ resource "aws_instance" "frontend" {
   ami             = "ami-03818140b4ac9ae2b"
   instance_type   = "t2.micro"
   security_groups = ["${aws_security_group.sghirevolgy.name}"]
-  key_name        = "KeyPair"
+  key_name        = var.keypair_name
 
   provisioner "remote-exec" {
 
     connection {
       type        = "ssh"
       user        = "ubuntu"
-      private_key = "${file("/home/kamil/Documents/TerraformEC2/KeyPair.pem")}"
+      private_key = "${file(var.keypair_path)}"
       host        = self.public_ip
     }
 
