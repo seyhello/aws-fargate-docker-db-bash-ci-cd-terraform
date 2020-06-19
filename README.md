@@ -18,10 +18,6 @@
 - exposed on port 8080
 - doesn't communicate with backend DB for now
 
-
-
-
-... still in progress ...
-## Backend APP
+## Backend APP just for learning - not in use
 - POSTGRE SQL database
 - exposed on port 5432
