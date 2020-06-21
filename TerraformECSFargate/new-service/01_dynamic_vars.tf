@@ -18,7 +18,7 @@ variable "vpc_id" {
 
 # Service unique variables declared in services/<service_name>.tfvars
 variable "app_name" {
-  description = "Application name (file with the same name and *.tfvars extension must be in services folder!)"
+  description = "Application name"
 }
 
 variable "app_image" {

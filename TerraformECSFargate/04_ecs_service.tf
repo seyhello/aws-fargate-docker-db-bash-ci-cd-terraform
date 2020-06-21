@@ -5,7 +5,7 @@ resource "aws_ecs_cluster" "main_cluster" {
 
 # Create service data file
 data "template_file" "service_data" {
-  template = file("./services/service_template.json")
+  template = file("./new-service/service_template.json")
 
   vars = {
     app_name       = var.app_name
