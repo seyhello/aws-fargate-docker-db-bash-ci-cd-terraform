@@ -1,7 +1,20 @@
 # Variables for environment - user prompted during execution
 variable "vpc_name" {
-  description = "VPC name"
+  description = "Project name"
 }
+variable "ecs_execution_role_arn" {
+  description = "ECS task execution role ARN"
+}
+variable "cluster_id" {
+  description = "Cluster ID"
+}
+variable "subnets_id" {
+  description = "Subnets ID"
+}
+variable "vpc_id" {
+  description = "VPC ID"
+}
+
 
 # Service unique variables declared in services/<service_name>.tfvars
 variable "app_name" {
