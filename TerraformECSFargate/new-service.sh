@@ -13,8 +13,7 @@ else
   mkdir $dir
   cd $dir
 
-  cp ../new-service/*.tf .
-  cp ../new-service/*.json .
+  cp ../new-service.tf/*.* .
   cp ../$1 .
   mv ../terraform.tfvars .
 

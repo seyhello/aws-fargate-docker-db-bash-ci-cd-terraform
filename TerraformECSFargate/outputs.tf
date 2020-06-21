@@ -18,8 +18,3 @@ output "subnets_id" {
   value       = aws_subnet.public.*.id
   description = "ECS subnets ID used for adding more services to the same cluster"
 }
-
-output "zz_dns_hostname" {
-  description = "DNS name for the deployed service"
-  value       = aws_alb.main_lb.dns_name
-}
