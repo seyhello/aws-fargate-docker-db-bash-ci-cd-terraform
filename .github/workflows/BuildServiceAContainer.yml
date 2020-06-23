@@ -1,5 +1,7 @@
 name: Publish Docker image to my seyhello/revolgy-task repository
 on: [push]
+paths:
+    - 'service-a/*'
 jobs:
   build:
     runs-on: ubuntu-latest
