@@ -1,7 +1,9 @@
 FROM nginx
 
+COPY service-a/wrapper.sh /
+
 COPY service-a/html /usr/share/nginx/html
 
 EXPOSE 80
 
-CMD ["exec nginx -g "daemon off;""]
+CMD ["./wrapper.sh"]
