@@ -1,5 +1,5 @@
 #!/bin/bash
 
-echo "Service A (nginx) is running..."
+echo "Service A is running..."
 
 exec nginx -g "daemon off;"
