@@ -1,6 +1,7 @@
 FROM nginx
 
-COPY /html /usr/share/nginx/html
+ARG BUILD_DIR=build
+COPY ${BUILD_DIR}/html /usr/share/nginx/html
 
 EXPOSE 80
 
