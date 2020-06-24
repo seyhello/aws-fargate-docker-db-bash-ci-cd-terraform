@@ -17,7 +17,6 @@ resource "aws_subnet" "public" {
   cidr_block        = cidrsubnet(aws_vpc.main_vpc.cidr_block, 9, count.index)
   availability_zone = data.aws_availability_zones.available.names[count.index]
   vpc_id            = aws_vpc.main_vpc.id
-  #  map_public_ip_on_launch = true
 
   tags = {
     Name = "sub_pub_${var.vpc_name}_${count.index}"
