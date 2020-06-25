@@ -4,7 +4,9 @@ data "aws_availability_zones" "available" {
 
 # Create main VPC
 resource "aws_vpc" "main_vpc" {
-  cidr_block = "10.10.0.0/16"
+  cidr_block           = "10.10.0.0/16"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
 
   tags = {
     Name = "vpc_${var.vpc_name}"

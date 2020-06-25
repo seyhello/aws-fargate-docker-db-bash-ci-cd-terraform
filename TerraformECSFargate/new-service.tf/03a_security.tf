@@ -17,6 +17,10 @@ resource "aws_security_group" "sg" {
     to_port     = 0
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  tags = {
+    Name = "sg_${var.vpc_name}_${var.app_name}"
+  }
 }
 
 # Application Load Balancer Security Group
@@ -37,5 +41,9 @@ resource "aws_security_group" "lb" {
     from_port   = 0
     to_port     = 0
     cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "sg_lb_${var.vpc_name}_${var.app_name}"
   }
 }

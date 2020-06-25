@@ -18,7 +18,7 @@ else
   service=$1
 fi
 
-dir="$svcdir/.svc_$service"
+dir="$svcdir/svc_$service"
 
 # Test if service directory exists. If so, delete the content
 if test -d $dir
