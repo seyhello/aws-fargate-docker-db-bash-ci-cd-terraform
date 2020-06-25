@@ -1,17 +1,25 @@
 #!/bin/bash
 
+# check if .services directory exists
+svcdir=".services"
+if ! test -d $svcdir
+then
+  echo "$svcdir doesn't exists. Creating ..."
+  mkdir $svcdir
+fi
+
 if test -z $1
 then
   echo "You must specify TFVARS service definition file. For example \"./new-service.sh services/customer-service.tfvars"
 else
-  dir="svc_"`echo $1 | awk -F'/' '{print $NF}' | cut -d "." -f 1`
   file=`echo $1 | awk -F'/' '{print $NF}'`
+  dir="$svcdir/"`echo svc_$file | cut -d "." -f 1`
 
 # Test if service directory exists. If so, delete the content
   if test -d $dir
   then
     echo "Service directory exists. Deleting ..."
-    rm $dir/*.*
+    rm $dir/*
   else
     mkdir $dir
   fi

@@ -8,3 +8,5 @@
 
 # Services directories
 svc_*/
+.services/
+.databases/
