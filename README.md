@@ -28,7 +28,7 @@
 - two different revisions of the webapp used in EC2 example - service-a and service-b directories
 - static HTML page served by nginx
 - CI workflow: docker image pushed to the docker hub automatically when "git push"
--- docker hub repository: seyhello/revolgy-task:service-a[b]
+- simplified docker hub repository: seyhello/revolgy-task:service-a[b] (It would be better to use unique repositories for each service and use :tags for app versions)
 
 ### Creating cluster
 
@@ -39,3 +39,6 @@
 ### Adding database(s)
 
 ### Removing database(s)
+
+### CD workflow
+- use Amazon ECS "Deploy Task Definition" Action for GitHub to deploy new release of the web app as new task definition
