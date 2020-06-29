@@ -1,22 +1,22 @@
 [
   {
-    "name": "${app_name}",
-    "image": "${app_image}",
-    "cpu": ${fargate_cpu},
-    "memory": ${fargate_memory},
+    "name": "service-b-deploy",
+    "image": "seyhello/revolgy-task:service-b",
+    "cpu": 512,
+    "memory": 1024,
     "networkMode": "awsvpc",
     "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "log_${vpc_name}_${app_name}",
-          "awslogs-region": "${aws_region}",
-          "awslogs-stream-prefix": "${vpc_name}_${app_name}"
+          "awslogs-group": "log_revolgy_service-b",
+          "awslogs-region": "eu-central-1",
+          "awslogs-stream-prefix": "revolgy_service-b"
         }
     },
     "portMappings": [
       {
-        "containerPort": ${app_port},
-        "hostPort": ${app_port}
+        "containerPort": 80,
+        "hostPort": 80
       }
     ]
   }
