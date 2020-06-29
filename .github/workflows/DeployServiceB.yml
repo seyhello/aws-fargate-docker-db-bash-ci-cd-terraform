@@ -1,6 +1,6 @@
 name: Deploy task definion to the ECS cluster
 on:
-  push:
+  release:
     branches: [ master ]
     paths:
     - 'service-b/**'
