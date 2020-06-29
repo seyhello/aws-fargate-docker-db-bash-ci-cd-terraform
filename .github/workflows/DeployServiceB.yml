@@ -2,6 +2,7 @@ name: Deploy task definion to the ECS cluster
 on:
   release:
     branches: [ master ]
+    types: [ published ]
     paths:
     - 'service-b/**'
 jobs:
