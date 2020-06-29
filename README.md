@@ -40,6 +40,11 @@
 
 ### Managing service(s)
 - To make it simple for you, there are two BASH scripts in the root project directory for managing services
+- several resources are created
+  - task definition for service
+  - application load balancer
+  - security groups
+  - AWS CloudWatch log group and log stream for the service
 
 #### add-service.sh
 - script gets *terraform output* from cluster creation and service parameters specified in TFVARS file, and finally run *terraform init / apply* in its own directory and deploys the service to the cluster
@@ -58,6 +63,7 @@
   fargate_memory = 2048
   ```
 - *you will be also prompted for the **project** name. This will be used for unique naming AWS resources*
+- **Service DNS name** is printed as *terraform output* 
   
 #### remove-service.sh
 - run this script for removing deployed service
