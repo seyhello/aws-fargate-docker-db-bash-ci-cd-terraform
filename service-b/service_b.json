@@ -1,23 +1,37 @@
-[
-  {
-    "name": "service-b-deploy",
-    "image": "seyhello/revolgy-task:service-b",
-    "cpu": 512,
-    "memory": 1024,
-    "networkMode": "awsvpc",
-    "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "log_revolgy_service-b",
-          "awslogs-region": "eu-central-1",
-          "awslogs-stream-prefix": "revolgy_service-b"
+{
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "inferenceAccelerators": [],
+    "containerDefinitions": [
+        {
+          "name": "service-b-deploy",
+          "image": "seyhello/revolgy-task:service-b",
+            "resourceRequirements": null,
+            "essential": true,
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                  "awslogs-group": "log_revolgy_service-b",
+                  "awslogs-region": "eu-central-1",
+                  "awslogs-stream-prefix": "revolgy_service-b"
+                }
+            },
+            "portMappings": [
+              {
+                "containerPort": 80,
+                "hostPort": 80,
+                "protocol" : "tcp"
+              }
+            ]
         }
-    },
-    "portMappings": [
-      {
-        "containerPort": 80,
-        "hostPort": 80
-      }
-    ]
-  }
-]
+    ],
+    "volumes": [],
+    "networkMode": "awsvpc",
+    "memory": "1024",
+    "cpu": "512",
+    "executionRoleArn": "arn:aws:iam::604725720641:role/role_revolgy_ECSTaskExecution",
+    "family": "task_deplyed_revolgy_service-b",
+    "taskRoleArn": "",
+    "placementConstraints": []
+}
