@@ -5,7 +5,7 @@
     "inferenceAccelerators": [],
     "containerDefinitions": [
         {
-          "name": "service-b-deploy",
+          "name": "service-a",
           "image": "seyhello/revolgy-task:service-b",
             "resourceRequirements": null,
             "essential": true,
@@ -31,7 +31,7 @@
     "memory": "1024",
     "cpu": "512",
     "executionRoleArn": "arn:aws:iam::604725720641:role/role_revolgy_ECSTaskExecution",
-    "family": "task_deplyed_revolgy_service-b",
+    "family": "task_deployed_revolgy_service-b",
     "taskRoleArn": "",
     "placementConstraints": []
 }
