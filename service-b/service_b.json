@@ -12,9 +12,9 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                  "awslogs-group": "log_revolgy_service-b",
+                  "awslogs-group": "log_revolgy_service-a",
                   "awslogs-region": "eu-central-1",
-                  "awslogs-stream-prefix": "revolgy_service-b"
+                  "awslogs-stream-prefix": "revolgy_service-a"
                 }
             },
             "portMappings": [
