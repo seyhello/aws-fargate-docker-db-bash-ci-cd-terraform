@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
     paths:
-    - 'service-c/**'
+    - 'service-b/**'
 jobs:
   build:
     runs-on: ubuntu-latest
