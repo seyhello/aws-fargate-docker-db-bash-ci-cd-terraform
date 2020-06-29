@@ -30,8 +30,8 @@
 - two different revisions of the webapp used in EC2 example - service-a and service-b directories
 - static HTML page served by nginx, containerized by Docker
 - simplified public Docker hub repository: **seyhello/revolgy-task:service-a[b]** (It would be better to use unique repositories for each service and use :tags for app versions, this is for demonstration)
-- CI workflow (defined in **BuildServiceA[B]Container.yaml**): docker image is built and pushed to the docker hub automatically when there are changes in service-a or service-b directories. *"git push"* starts the workflow
-- CD workflow (defined in **DeployServiceA[B].yaml)**: starts CI workflow and deploy the service to the AWS ECS cluster as Fargate service. It is ok as demonstration example because fixed variables are used in .yaml file. There would be better to use dynamic variables, but I didn' find out the way how to do it. *Publish release* on the git starts the workflow 
+- **_CI workflow_** (defined in **BuildServiceA[B]Container.yaml**): docker image is built and pushed to the docker hub automatically when there are changes in service-a or service-b directories. *"git push"* starts the workflow
+- **_CD workflow_** (defined in **DeployServiceA[B].yaml)**: starts CI workflow and deploy the service to the AWS ECS cluster as Fargate service. It is ok as demonstration example because fixed variables are used in .yaml file. There would be better to use dynamic variables, but I didn't find out the way how to do it. *Publish release* on the git starts the workflow 
 
 ### Creating cluster
 - just run **terraform init / apply** in the root directory
