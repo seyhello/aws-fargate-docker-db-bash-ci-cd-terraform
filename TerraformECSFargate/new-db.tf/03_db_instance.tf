@@ -24,6 +24,7 @@ resource "aws_security_group" "sgpostgresql" {
   }
 }
 
+# Subnet group - only way how to identify in which VPC the database will be created
 resource "aws_db_subnet_group" "default" {
   name       = "dbsg_${var.vpc_name}_${var.database_id}"
   subnet_ids = var.subnets_id
@@ -33,7 +34,7 @@ resource "aws_db_subnet_group" "default" {
   }
 }
 
-# RDS resources
+# RDS resources - as simple as possible
 resource "aws_db_instance" "postgresql" {
   engine                 = "postgres"
   identifier             = var.database_id
