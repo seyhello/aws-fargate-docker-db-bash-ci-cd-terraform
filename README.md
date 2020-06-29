@@ -26,12 +26,12 @@
 - My "Hi Revolgy" web app doesn't use database, but there is an example how to create PostgreSQL database in AWS
 - CI/CD workflow is done on GitHub side, described below
 
-### Service A / Service B
+### "Hi, Revolgy!" app - Service A / Service B
 - two different revisions of the webapp used in EC2 example - service-a and service-b directories
 - static HTML page served by nginx, containerized by Docker
-- simplified Docker hub repository: **seyhello/revolgy-task:service-a[b]** (It would be better to use unique repositories for each service and use :tags for app versions, this is for demonstration)
-- CI workflow (defined in **BuildServiceA[B]Container.yaml**): docker image is built and pushed to the docker hub automatically when there are changes in service-a or service-b directories. "git push" starts the workflow
-- CD workflow (defined in **DeployServiceA[B].yaml)**: starts CI workflow and deploy the service to the AWS ECS cluster as Fargate service. It is ok as demonstration example because fixed variables are used in .yaml file. There would be better to use dynamic variables, but I didn' find out the way how to do it.
+- simplified public Docker hub repository: **seyhello/revolgy-task:service-a[b]** (It would be better to use unique repositories for each service and use :tags for app versions, this is for demonstration)
+- CI workflow (defined in **BuildServiceA[B]Container.yaml**): docker image is built and pushed to the docker hub automatically when there are changes in service-a or service-b directories. *"git push"* starts the workflow
+- CD workflow (defined in **DeployServiceA[B].yaml)**: starts CI workflow and deploy the service to the AWS ECS cluster as Fargate service. It is ok as demonstration example because fixed variables are used in .yaml file. There would be better to use dynamic variables, but I didn' find out the way how to do it. *Publish release* on the git starts the workflow 
 
 ### Creating cluster
 - just run **terraform init / apply** in the root directory
@@ -64,6 +64,20 @@
 - you will be prompted for the service name
 - script will run *terraform destroy* in the service directory and finally deletes the directory
 
-### Adding database(s)
+### Managing database(s)
+- there are two BASH scripts in the root project directory for managing services
 
-### Removing database(s)
+#### add-database.sh
+- script gets *terraform output* from cluster/VPC creation, prompts user for additional database parameters, and finally run *terraform init / apply* in its own directory and deploys the database to the VPC
+- database parameters required as user input are:
+  ```
+  Database instance ID
+  Inside database name
+  Username used for database operations
+  Password for the user
+  ```
+
+#### remove-database.sh
+- script for removing deployed database
+- you will be prompted for the database instance id
+- script will run *terraform destroy* in the database directory and finally deletes the directory
