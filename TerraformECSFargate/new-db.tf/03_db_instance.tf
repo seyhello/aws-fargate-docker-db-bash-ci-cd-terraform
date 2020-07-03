@@ -44,7 +44,7 @@ resource "aws_db_instance" "postgresql" {
   port                   = var.database_port
   vpc_security_group_ids = [aws_security_group.sgpostgresql.id]
 
-  instance_class                  = "db.t3.micro"
+  instance_class                  = "db.t2.micro"
   allocated_storage               = 32
   max_allocated_storage           = 100
   db_subnet_group_name            = aws_db_subnet_group.default.name
