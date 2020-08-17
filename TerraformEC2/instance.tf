@@ -25,7 +25,7 @@ resource "aws_instance" "frontend" {
       "cd Project",
       "sudo groupadd docker",
       "sudo gpasswd -a $USER docker",
-      "git clone https://github.com/seyhello/revolgy-task.git",
+      "git clone https://github.com/seyhello/aws-fargate-docker-db-bash-ci-cd-terraform.git",
       "cd revolgy-task/TerraformEC2/app-front/",
       "sudo docker build -t app-front .",
       "sudo docker run -p 8080:80 -d app-front"
