@@ -1,4 +1,4 @@
-# Demo Cloud Solution for Revolgy
+# Demo Cloud Solution
 - Cloud example 1 - AWS / EC2 - just for self-learning
 - Cloud example 2 - AWS / ECS Fargate - Main cloud solution
 
@@ -23,13 +23,13 @@
 
 ## ECS deployment
 - **TerraformECSFargate** folder
-- My "Hi Revolgy" web app doesn't use database, but there is an example how to create PostgreSQL database in AWS
+- My "Hi, Folks" web app doesn't use database, but there is an example how to create PostgreSQL database in AWS
 - CI/CD workflow is done on GitHub side, described below
 
-### "Hi, Revolgy!" app - Service A / Service B
+### "Hi, Folks!" app - Service A / Service B
 - two different revisions of the webapp used in EC2 example - service-a and service-b directories
 - static HTML page served by nginx, containerized by Docker
-- simplified public Docker hub repository: **seyhello/revolgy-task:service-a[b]** (It would be better to use unique repositories for each service and use :tags for app versions, this is for demonstration)
+- simplified public Docker hub repository: **seyhello/hi-folks:service-a[b]** (It would be better to use unique repositories for each service and use :tags for app versions, this is for demonstration)
 - **_CI workflow_** (defined in **BuildServiceA[B]Container.yaml**): docker image is built and pushed to the docker hub automatically when there are changes in service-a or service-b directories. *"git push"* starts the workflow
 - **_CD workflow_** (defined in **DeployServiceA[B].yaml)**: starts CI workflow and deploy the service to the AWS ECS cluster as Fargate service. It is ok as demonstration example because fixed variables are used in .yaml file. There would be better to use dynamic variables, but I didn't find out the way how to do it. *Publish release* on the git starts the workflow 
 
@@ -56,7 +56,7 @@
 - TFVARS file defines variables required for service creation - service name, docker repository, application port, instances count, number of CPUs and memory. File should look like this
   ```
   app_name       = "service-a"
-  app_image      = "seyhello/revolgy-task:service-a"
+  app_image      = "seyhello/hi-folks:service-a"
   app_port       = 80
   app_count      = 2
   fargate_cpu    = 1024
