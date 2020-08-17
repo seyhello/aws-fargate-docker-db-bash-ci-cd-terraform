@@ -5,7 +5,7 @@ provider "aws" {
 resource "aws_instance" "frontend" {
   ami             = "ami-03818140b4ac9ae2b"
   instance_type   = "t2.micro"
-  security_groups = ["${aws_security_group.sghirevolgy.name}"]
+  security_groups = ["${aws_security_group.sghifolks.name}"]
   key_name        = var.keypair_name
 
   provisioner "remote-exec" {
