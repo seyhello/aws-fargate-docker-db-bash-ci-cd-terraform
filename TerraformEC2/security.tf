@@ -1,5 +1,5 @@
-resource "aws_security_group" "sghirevolgy" {
-  name        = "sghirevolgy"
+resource "aws_security_group" "sghifolks" {
+  name        = "sghifolks"
   description = "Security group that allows inbound and outbound traffic from all"
   /* SSH from All is not secure but this is only for demonstration purposes */
 
@@ -24,8 +24,3 @@ resource "aws_security_group" "sghirevolgy" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-
-/*resource "aws_key_pair" "kphirevolgy" {
-  key_name   = "KeyPair"
-  public_key = file("KeyPairOut.pub")
-}*/
