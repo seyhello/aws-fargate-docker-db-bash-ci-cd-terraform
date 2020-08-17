@@ -34,7 +34,7 @@ resource "aws_instance" "frontend" {
   }
 
   tags = {
-    Name = "HiRevolgy"
+    Name = "HiFolks"
   }
 
 
