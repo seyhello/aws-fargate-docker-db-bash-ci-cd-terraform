@@ -1,4 +1,4 @@
-FROM nginx
+FROM nginx:mainline
 
 # Little bit confusing, it is working only for GitHub Actions
 COPY service-b/wrapper.sh /
