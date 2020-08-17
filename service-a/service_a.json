@@ -6,15 +6,15 @@
     "containerDefinitions": [
         {
           "name": "service-a",
-          "image": "seyhello/revolgy-task:service-a",
+          "image": "seyhello/hi-folks-svc-a:latest",
             "resourceRequirements": null,
             "essential": true,
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                  "awslogs-group": "log_revolgy_service-a",
+                  "awslogs-group": "log_[PROJECT]_service-a",
                   "awslogs-region": "eu-central-1",
-                  "awslogs-stream-prefix": "revolgy_service-a"
+                  "awslogs-stream-prefix": "[PROJECT]_service-a"
                 }
             },
             "portMappings": [
@@ -31,7 +31,7 @@
     "memory": "1024",
     "cpu": "512",
     "executionRoleArn": "arn:aws:iam::604725720641:role/role_revolgy_ECSTaskExecution",
-    "family": "task_revolgy_service-a_release_deployed",
+    "family": "task_[PROJECT]_service-a_release_deployed",
     "taskRoleArn": "",
     "placementConstraints": []
 }
